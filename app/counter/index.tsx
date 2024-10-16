@@ -1,24 +1,25 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, Alert } from "react-native";
+import { registerForPushNotificationsAsync } from "../../utils/registerForPushNotificationsAsync";
+import * as Notifications from "expo-notifications";
 import { theme } from "../../theme";
+
 // import { useRouter } from "expo-router";
 
 export default function CounterScreen() {
   //   const router = useRouter();
+  const handleRequestPermission = async () => {
+    const result = await registerForPushNotificationsAsync();
+    console.log("Permission", result);
+  };
   return (
     <View style={styles.container}>
-      {/* <TouchableOpacity onPress={() => router.navigate("/idea")}> */}
-      {/* <Text
-          style={{
-            textAlign: "center",
-            marginBottom: 18,
-            fontSize: 24,
-            fontWeight: "bold",
-          }}
-        >
-          Go to /idea
-        </Text> */}
-      {/* </TouchableOpacity> */}
-      <Text style={styles.text}>Counter Screen</Text>
+      <TouchableOpacity
+        onPress={handleRequestPermission}
+        style={styles.button}
+        activeOpacity={0.8}
+      >
+        <Text style={styles.buttonText}>Request permission</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -32,5 +33,16 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 24,
+  },
+  button: {
+    backgroundColor: theme.colorBlack,
+    padding: 12,
+    borderRadius: 6,
+  },
+  buttonText: {
+    color: "#fff",
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    letterSpacing: 1,
   },
 });

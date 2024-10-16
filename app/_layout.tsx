@@ -1,7 +1,7 @@
 import { Tabs } from "expo-router";
 import Feather from "@expo/vector-icons/Feather";
-// import AntDesign from "@expo/vector-icons/AntDesign";
-// import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { theme } from "../theme";
 
 export default function Layout() {
@@ -16,7 +16,7 @@ export default function Layout() {
           ),
         }}
       />
-      {/* <Tabs.Screen
+      <Tabs.Screen
         name="counter"
         options={{
           title: "Counter",
@@ -27,8 +27,8 @@ export default function Layout() {
           //   presentation: "formSheet",
           //   animation: "slide_from_right",
         }}
-      /> */}
-      {/* <Tabs.Screen
+      />
+      <Tabs.Screen
         name="idea"
         options={{
           title: "Idea",
@@ -37,7 +37,7 @@ export default function Layout() {
           ),
           //   presentation: "formSheet",
         }}
-      /> */}
+      />
     </Tabs>
   );
 }
